@@ -1,0 +1,12 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Move as you are — 고해은</title>
+<style>html,body{margin:0;height:100%;overflow:hidden;background:#FDFDF8}iframe{position:absolute;left:0;top:0;border:0;width:1792px;transform-origin:0 0;display:block}</style></head>
+<body><iframe id="show" title="Move as you are — 고해은 · 경험디자인B"></iframe>
+<script>
+/* Fixed-ratio presenter: the showing is laid out at the author's MacBook viewport width (1792px) inside this iframe
+   and scaled to the window, so every desktop sees the same proportions. Below 1024px the responsive page is used directly. */
+(()=>{const W=1792,f=document.getElementById('show'),q=new URLSearchParams(location.search);
+if(innerWidth<1024){q.set('framed','0');location.replace('./?'+q+location.hash);return;}
+q.set('framed','1');f.src='./?'+q+location.hash;
+const fit=()=>{const z=innerWidth/W;f.style.transform=`scale(${z})`;f.style.height=(innerHeight/z)+'px';};
+addEventListener('resize',fit);fit();f.addEventListener('load',()=>f.contentWindow.focus());})();
+</script></body></html>

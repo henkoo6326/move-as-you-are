@@ -43,4 +43,3 @@
  .pc-track{--cw:min(78vw,calc((100svh - 250px) * 1298 / 1317));--gap:12px;padding-left:20px}
  .pc-card{border-radius:4vw}
 }
-@media(prefers-reduced-motion:reduce){.pc-window{overflow-x:auto;scroll-snap-type:x mandatory}.pc-card{scroll-snap-align:start}.pc-track{will-change:auto}}

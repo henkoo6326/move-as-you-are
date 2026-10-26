@@ -1,0 +1,7 @@
+/* Inside frame.html the page is 1792px wide; the screen height is fixed to the MacBook's 1000px so the
+   full-screen sections (hero, Today's pace) keep the same proportions on every desktop. */
+html.framed{--app-h:1000px;scrollbar-width:none}
+html.framed::-webkit-scrollbar{display:none}
+html.framed .hero.ht,html.framed .ht{height:calc(var(--app-h) - 72px)}
+html.framed .pace-section{height:var(--app-h)}
+html.framed .pc-track{--cw:min(43.27vw,calc((var(--app-h) - 330px) * 1298 / 1317))}

@@ -40,3 +40,8 @@
    선의 위치 = BIS 문서 왼쪽 여백 36.8% + 문서 폭 63.2% × 아래 줄 첫 칸(40%, 1100px 이하 45%) */
 @media(min-width:1101px){.concept-intro{grid-template-columns:62.08% 1fr;gap:0}}
 @media(max-width:1100px) and (min-width:761px){.concept-intro{grid-template-columns:65.24% 1fr;gap:0}}
+
+/* Planning 본문 — 사용자가 준 <br> 세 줄을 그대로. 줄이 머리 칸보다 길어 오른쪽 여백까지 쓰고(제목 위치는 그대로),
+   오른쪽 사진에 닿는 1360px 미만에서는 <br> 를 숨겨 line-breaks.js 가 자연스럽게 나눈다 */
+@media(min-width:1360px){.selected-opening header p{width:max-content}}
+@media(max-width:1359px){.selected-opening header p br{display:none}}
