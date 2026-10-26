@@ -1,0 +1,116 @@
+/* Move as you are. — 공통 디자인 토큰
+   세 시안이 같은 토큰을 쓴다. 시안마다 다른 것은 구조·그리드 사용·타이포의 역할·모션 원리이지 색·서체가 아니다.
+   근거: 03_art_direction/ART_DIRECTION.md, 02_reference_analysis/SYNTHESIS.md §3 */
+
+@font-face {
+  font-family: "Pretendard";
+  src: url("../assets/fonts/PretendardVariable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("../assets/fonts/Archivo-Variable-latin.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  /* 색 — 역할과 비율
+     바탕 off-white 약 70% · 잉크 off-black 약 20% · 무채 단계 약 6%
+     정보색 Report Blue ≤ 3% (일정·표·다이어그램 배경)
+     캠페인 강조 Lime ≤ 2% ("새로 열린 시간" 표시 하나에만)
+     브랜드 신호 Red ≤ 1% (로고·포커스·우선 신호. 면으로 깔지 않는다) */
+  --c-paper: #FDFDF8;          /* lululemon 공식 off-white */
+  --c-ink: #140F0F;            /* lululemon 공식 off-black */
+  --c-ink-70: #4A4545;
+  --c-ink-50: #6E6A69;         /* 보조 글자. 바탕 대비 5.2:1 */
+  --c-ink-30: #A8A5A1;         /* 장식·비활성(글자에 쓰지 않음) */
+  --c-line: rgba(20, 15, 15, 0.14);
+  --c-stone: #EEEDE7;          /* 판·인셋 바탕 */
+  --c-stone-2: #E2E0D8;
+  --c-red: #C8102E;            /* Signature Red = Pantone 186 C */
+  --c-lime: #F5FF8E;           /* Campaign Lime — 새로 열린 시간 */
+  --c-blue: #C0DDFF;           /* Report Blue — 정보 */
+  --c-blue-ink: #1F3A5C;       /* Report Blue 위 글자 */
+
+  /* 서체 */
+  --f-ko: "Pretendard", "Apple SD Gothic Neo", system-ui, sans-serif;
+  --f-en: "Archivo", "Pretendard", system-ui, sans-serif;
+
+  /* 타입 스케일 (1440 기준 → 390 기준). 행간: 제목 130%, 본문 160%. 자간 −2% 통일
+     예외: 캠페인 타이틀 락업은 브랜드 규격(Light·문장형)을 따르되 자간은 −2% 유지 */
+  --t-display: clamp(48px, 7.4vw, 112px);
+  --t-h1: clamp(34px, 4.4vw, 64px);
+  --t-h2: clamp(26px, 2.8vw, 40px);
+  --t-h3: clamp(19px, 1.6vw, 24px);
+  --t-body: clamp(15px, 1.1vw, 17px);
+  --t-small: 14px;
+  --t-meta: 13px;
+  --lh-title: 1.3;
+  --lh-body: 1.6;
+  --ls: -0.02em;
+  --w-light: 300;
+  --w-regular: 400;
+  --w-medium: 500;
+
+  /* 그리드 */
+  --cols: 12;
+  --page-x: clamp(16px, 4.4vw, 64px);
+  --gutter: clamp(12px, 1.7vw, 24px);
+  --max: 1440px;
+  --measure: 36em;            /* 본문 열 560–640px */
+
+  /* 간격 — 두 단계 + 미세 단계. 모바일은 0.6배 */
+  --space-section: clamp(96px, 11vw, 160px);
+  --space-group: clamp(48px, 5.6vw, 80px);
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px; --s-7: 48px;
+  --media-gap: clamp(12px, 1.7vw, 24px);
+
+  /* 모션 — 등장은 한 종류. 투명도와 이동에 다른 곡선
+     "나의 속도": 인물·상태마다 이동 시간이 다르다. 쉼이 가장 느리다 */
+  --ease-fade: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-move: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fade: 600ms;
+  --dur-move: 800ms;
+  --pace-move: 720ms;   /* 움직임 */
+  --pace-again: 560ms;  /* 다시 */
+  --pace-rest: 1400ms;  /* 쉼 */
+  --rise: 64px;
+  --stagger: 100ms;
+}
+@media (max-width: 720px) {
+  :root { --rise: 32px; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--c-paper);
+  color: var(--c-ink);
+  font-family: var(--f-ko);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { line-height: var(--lh-title); font-weight: var(--w-regular); margin: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+img, video { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+em, i { font-style: normal; }           /* 이탤릭 금지 */
+:focus-visible { outline: 2px solid var(--c-red); outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.en { font-family: var(--f-en); }
+.lockup { font-family: var(--f-en); font-weight: var(--w-light); letter-spacing: var(--ls); line-height: 1.05; }
+.ai-note { font-size: var(--t-meta); color: var(--c-ink-50); }
+.skip-link { position: absolute; left: 8px; top: -60px; background: var(--c-ink); color: var(--c-paper); padding: 10px 14px; z-index: 1000; text-decoration: none; }
+.skip-link:focus { top: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

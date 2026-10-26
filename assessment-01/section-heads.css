@@ -1,0 +1,111 @@
+/* Section headers from Key Visual down: one arrangement per section, borrowed from the sections above it. */
+.sh h3{font-weight:400;letter-spacing:-.045em;line-height:1.3;word-break:keep-all;text-wrap:balance;margin:0}
+.sh p{text-wrap:pretty}
+
+/* Key Visual — title left, body right, tops aligned */
+.sh-split{max-width:1296px;display:grid;grid-template-columns:1fr 1fr;column-gap:7%;margin-bottom:56px}
+.sh-split .eyebrow{grid-column:1/-1}
+.sh-split>div{display:contents}
+.sh-split h3{font-size:clamp(32px,3.4vw,54px)}
+.sh-split p{align-self:start;max-width:600px;margin:0;text-wrap:balance}
+
+/* Iconography — hairline, title left and body right, tops aligned */
+.sh-inline{max-width:1296px;border-top:1px solid var(--c-line,rgba(20,15,15,.14));padding-top:28px}
+.sh-inline>div{max-width:none;display:grid;grid-template-columns:1fr 1fr;column-gap:7%;align-items:start}
+.sh-inline h3{font-size:clamp(26px,2.4vw,36px);flex:none}
+.sh-inline p{max-width:600px;margin:.35em 0 0}
+
+/* Videography — one display line across the content width, body in the right half (Concept) */
+.sh-display{max-width:1296px;margin-bottom:48px}
+.sh-display>div{max-width:none}
+.sh-display h3{font-family:var(--f-en,Archivo,sans-serif);font-weight:300;font-size:clamp(56px,10.4vw,168px);line-height:.98;letter-spacing:-.06em;margin:8px 0 32px;white-space:nowrap}
+.sh-display p{margin-left:50%;max-width:480px;text-wrap:balance}
+
+/* Reels — title over the first phone, body over the second (same three columns as the phones) */
+.sh-columns{max-width:1296px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:24px;margin-bottom:48px}
+.sh-columns .eyebrow{grid-column:1/-1}
+.sh-columns>div{display:contents}
+.sh-columns h3{font-size:clamp(28px,2.6vw,42px)}
+.sh-columns p{grid-column:2/4;max-width:520px;margin:6px 0 0}
+
+/* Posters — large stacked title, body under it */
+.sh-stack h3{font-size:clamp(40px,4.6vw,72px);line-height:1.15;letter-spacing:-.05em;margin-bottom:32px}
+.sh-stack p{max-width:560px}
+
+/* Stories — the header opens the dark story band */
+#stories{overflow-x:clip}
+.sh-dark{display:flow-root;max-width:none;margin:0 calc(50% - 50vw) 0;padding:96px max(5vw,calc(50vw - 648px)) 0;background:#191919;color:#FDFDF8}
+.sh-dark .eyebrow{color:rgba(253,253,248,.6)}
+.sh-dark>div{max-width:760px}
+.sh-dark p{font-size:clamp(22px,2vw,30px);line-height:1.55;letter-spacing:-.03em}
+#stories .sh-dark+.reels-embed .reels-window{padding-top:72px}
+
+/* Feed — title left, small gray note at the bottom right (Campaign Title) */
+.sh-end{max-width:1296px}
+.sh-end>div{max-width:none;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+.sh-end h3{font-size:clamp(32px,3.4vw,54px)}
+.sh-end p{max-width:360px;text-wrap:balance;font-size:15px;line-height:1.8;color:#68635f;margin:0}
+
+@media(max-width:760px){
+ .sh-split,.sh-columns{display:block;margin-bottom:30px}
+ .sh-split h3,.sh-columns h3,.sh-end h3,.sh-stack h3{font-size:32px;margin-bottom:18px}
+ .sh-split p,.sh-columns p{margin:0}
+ .sh-inline>div,.sh-end>div{display:block}.sh-inline p{max-width:none}.sh-inline h3{margin-bottom:12px}.sh-inline p,.sh-end p{max-width:none}
+ .sh-display h3{font-size:clamp(40px,13vw,64px);white-space:normal;margin-bottom:20px}
+ .sh-display p{margin-left:0}
+ .sh-dark{padding:64px 20px 0}.sh-dark p{font-size:20px}
+ #stories .sh-dark+.reels-embed .reels-window{padding-top:40px}
+}
+
+/* line-breaks.js: one span per line, sentence first */
+.lb{display:block}
+.section-head:not(.sh) p{max-width:840px}
+
+/* Brand header: eyebrow on top, title left, body right with tops aligned (same as Key Visual) */
+.sb-head{align-items:start}
+.sb-head>div{display:contents}
+.sb-head h2{grid-column:1/-1}
+.sb-head h3{grid-column:1}
+.sb-head p{grid-column:2;align-self:start;margin-top:.35em}
+@media(max-width:760px){.sb-head p{margin-top:25px}}
+/* Brand body keeps the author's <br> breaks where the lines fit; narrower screens let it flow */
+@media(min-width:1200px){.sb-head{grid-template-columns:1fr auto}.sb-head p{white-space:nowrap}}
+@media(min-width:761px) and (max-width:1199px){.sb-head{display:block}.sb-head p{margin-top:28px}}
+@media(max-width:760px){.sb-head p br{display:none}.sb-head p{text-wrap:pretty}}
+
+/* One body style for every section header (Brand → Feed): 18px / 1.8, off-black, regular; 16px on phones. */
+main :is(.section-head,.sb-head,.bm-heading,.concept-intro,.selected-opening) p,main .cl-wrap .bm-heading p{font-size:18px;line-height:1.8;color:var(--c-ink,#140F0F);font-weight:400;letter-spacing:-.02em;word-break:keep-all}
+main .sh-dark p{color:#FDFDF8}
+main .cl-wrap .bm-heading p,main .sh-end p{max-width:480px}
+/* Posters (campaign-layout.js) and Feed: body top-aligned with the title, like Key Visual */
+.cl-wrap .bm-heading{display:grid;grid-template-columns:1fr 1fr;column-gap:7%;align-items:start}
+.cl-wrap .bm-heading>div{display:contents}
+.cl-wrap .bm-heading h2{grid-column:1/-1}
+.cl-wrap .bm-heading p{grid-column:2;margin:.35em 0 0}
+.sh-end>div{align-items:flex-start}
+.sh-end p{margin-top:.35em}
+@media(max-width:760px){
+ main :is(.section-head,.sb-head,.bm-heading,.concept-intro,.selected-opening) p,main .cl-wrap .bm-heading p{font-size:16px}
+ .cl-wrap .bm-heading{display:block}.cl-wrap .bm-heading p{margin-top:20px;max-width:none}
+}
+
+/* Feed grid: numbered posts (1)–(9) above each top-left corner, wider gaps, hairline outline so paper posts read */
+#feed .feed-grid{counter-reset:post;column-gap:32px;row-gap:40px;max-width:1296px}
+#feed .feed-grid figure{counter-increment:post;margin:0}
+#feed .feed-grid figure::before{content:"(" counter(post) ")";display:block;margin-bottom:12px;font-family:var(--f-en,Archivo,sans-serif);font-size:13px;line-height:1;letter-spacing:-.02em;color:var(--c-ink,#140F0F)}
+#feed .feed-grid img{display:block;box-shadow:0 0 0 1px var(--c-line,rgba(20,15,15,.14))}
+@media(max-width:760px){#feed .feed-grid{column-gap:12px;row-gap:24px}#feed .feed-grid figure::before{font-size:11px;margin-bottom:8px}}
+
+/* Brand weave: Sweat / Grow / Connect sits on the bottom edge of the photo to its left */
+@media(min-width:761px){.sb-weave .sb-words{align-self:end;padding-top:0}}
+
+/* Hero: lululemon sign-off on the hero grid, same column and inset as "As I am now", mirrored at the bottom */
+.ht.ht-f::before{content:"";position:absolute;z-index:3;left:calc(var(--x) + 10px);bottom:6cqh;width:max(112px,8.4cqw);aspect-ratio:120/17;background:#FDFDF8;-webkit-mask:url(../assets/logo/lululemon.svg) left center/contain no-repeat;mask:url(../assets/logo/lululemon.svg) left center/contain no-repeat;pointer-events:none}
+@media(max-width:760px){.ht.ht-f::before{bottom:5cqh;width:104px}}
+
+/* Campaign Title: 사용자 지시(10/26) — 설명은 오른쪽 영상 칸 폭만큼 가로로 채운다.
+   line-breaks.js 가 문장마다 줄을 나누므로 이 묶음만 문장을 이어 흐르게 한다(좁은 화면에서는 자연스럽게 줄바꿈) */
+@media(min-width:761px){#campaign-title .bm-description{width:calc((100% - 24px)/2);margin-left:auto}}  /* 폭 = 바로 위 오른쪽 영상(move 로고) 칸과 같게 */
+#campaign-title .bm-description p{text-wrap:pretty}
+#campaign-title .bm-description .lb{display:inline}
+#campaign-title .bm-description .lb+.lb::before{content:" "}

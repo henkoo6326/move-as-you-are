@@ -1,0 +1,33 @@
+/* Typography · Color on the Campaign Title grid (type-color.js). Heading and description reuse .bm-heading / .bm-description. */
+#typography.tc-section,#color.tc-section{padding-top:100px}
+.tc-type{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.tc-en,.tc-ko{aspect-ratio:4/3;padding:clamp(24px,2.8vw,40px);display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.tc-en{background:#140F0F;color:#FDFDF8;font-family:Archivo,sans-serif}
+.tc-ko{background:#F1F0EA;color:#140F0F;font-family:Pretendard,sans-serif}
+.tc-label{display:flex;justify-content:space-between;gap:16px;font-size:13px;line-height:1.4}
+.tc-label span+span{opacity:.6}
+.tc-en-title{font-weight:300;font-size:clamp(56px,8.4vw,128px);line-height:.98;letter-spacing:-.05em}
+.tc-scale{display:grid;gap:clamp(14px,1.6vw,24px)}
+.tc-ko-title{font-size:clamp(32px,3.6vw,56px);font-weight:400;line-height:1.25;letter-spacing:-.03em;word-break:keep-all}
+.tc-ko-body{font-size:clamp(15px,1.25vw,18px);line-height:1.6;word-break:keep-all}
+.tc-ko-note{font-size:12px;color:#716d69}
+.tc-glyphs{font-size:clamp(13px,1.1vw,16px);line-height:1.6;opacity:.6}
+.tc-en .tc-glyphs{font-weight:300}
+.tc-band{display:grid;height:clamp(200px,20vw,300px)}
+.tc-chip{background:var(--c);padding:18px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;min-width:0;color:#140F0F}
+.tc-chip:first-child{box-shadow:inset 0 0 0 1px #dedbd5}
+.tc-chip.on-dark{color:#FDFDF8}
+.tc-chip span{font-size:14px;line-height:1.3;white-space:nowrap}
+.tc-chip small{font-size:12px;color:inherit;opacity:.7}
+.tc-app{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.tc-s{display:block;text-wrap:balance}
+.tc-app>figure{margin:0;min-width:0;height:auto}
+.tc-app img{width:100%;height:auto}
+@media(max-width:760px){
+ #typography.tc-section,#color.tc-section{padding-top:64px}
+ .tc-type{grid-template-columns:1fr;gap:16px}
+ .tc-en,.tc-ko{aspect-ratio:auto;min-height:340px;gap:40px}
+ .tc-band{grid-template-columns:1fr!important;height:auto}
+ .tc-chip{height:calc(var(--w)*28px + 36px);flex-direction:row;align-items:flex-end;justify-content:space-between}
+ .tc-app{gap:8px;margin-top:16px}
+}

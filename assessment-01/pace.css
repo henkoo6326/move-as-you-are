@@ -1,0 +1,46 @@
+/* Today's pace closing carousel (pace.js). Card sizes follow the reference frame: card 1298/3000 of the width,
+   gap 54/3000, first card at the page gutter. Type inside a card is sized in cqw so it scales with the card. */
+/* One full screen: header and cards centred as a block below the sticky nav (72px, 60px on phones);
+   the card shrinks when the screen is short so it always fits (330px = padding incl. nav + header + its margin) */
+.pace-section{margin-top:120px;background:#140F0F;color:#FDFDF8;padding:112px 0 56px;overflow:hidden;box-sizing:border-box;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center}
+.pc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:0 5vw;margin-bottom:56px}
+.pc-head h2{font-family:Archivo,sans-serif;font-weight:300;font-size:clamp(40px,4.4vw,64px);line-height:1;letter-spacing:-.04em;margin:0}
+.pc-head p{font-size:15px;color:rgba(253,253,248,.6);margin-top:14px}
+.pc-dots{flex:none;display:flex;align-items:center;gap:6px;height:36px;padding:0 14px;border:0;border-radius:18px;background:rgba(253,253,248,.1);cursor:pointer}
+.pc-dots i{width:5px;height:5px;border-radius:3px;background:rgba(253,253,248,.4);transition:width .6s ease,background-color .6s ease}
+.pc-dots i.on{width:20px;background:#FDFDF8}
+.pc-dots.paused i.on{background:rgba(253,253,248,.7)}
+.pc-dots:focus-visible{outline:2px solid #FDFDF8;outline-offset:4px}
+.pc-window{overflow:hidden}
+.pc-track{--cw:min(43.27vw,calc((100svh - 330px) * 1298 / 1317));--gap:1.8vw;list-style:none;margin:0;padding:0 0 0 5vw;display:flex;column-gap:var(--gap);will-change:transform}
+.pc-card{position:relative;flex:none;width:var(--cw);aspect-ratio:1298/1317;border-radius:2.4vw;overflow:hidden;container-type:inline-size;display:flex;flex-direction:column;color:#140F0F;font-family:Archivo,Pretendard,sans-serif}
+.pc-white{background:#FDFDF8}.pc-lime{background:#F5FF8E}.pc-blue{background:#C0DDFF}
+.pc-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.pc-art{position:relative;flex:1;padding:6cqw 6.5cqw 0}
+.pc-lockup{width:58cqw}
+.pc-lockup img{display:block;height:auto}
+.pc-lockup img:first-child{width:100%}
+.pc-lockup img:last-child{width:86.3%;margin:1.2cqw 0 0 5.2%}
+.pc-word{font-weight:300;letter-spacing:-.05em;line-height:.95}
+.pc-corner{position:absolute;right:6.5cqw;bottom:4cqw;font-size:15cqw}
+.pc-center{font-size:27cqw;text-align:center;margin-top:9cqw}
+.pc-repeat{font-weight:300;font-size:13.6cqw;line-height:.9;letter-spacing:-.05em}
+.pc-logo{display:block;background:currentColor;-webkit-mask:url(../assets/logo/lululemon.svg) center/contain no-repeat;mask:url(../assets/logo/lululemon.svg) center/contain no-repeat;aspect-ratio:120/17}
+.pc-lime .pc-logo{width:30cqw;margin:5cqw auto 0}
+.pc-photo~.pc-tag{position:absolute;z-index:1;left:6.5cqw;right:6.5cqw;top:44%;display:flex;justify-content:space-between;align-items:center;color:#FDFDF8;font-size:3.4cqw}
+.pc-tag .pc-logo{width:20cqw}
+.pc-foot{position:relative;z-index:1;margin:0 4.8cqw;height:14.5cqw;flex:none;margin-top:auto;border-top:1px solid #C8102E;display:flex;align-items:center;justify-content:space-between;padding:0 1.6cqw;font-family:Pretendard,sans-serif;font-size:3.3cqw;letter-spacing:-.01em}
+.pc-photo~.pc-foot{color:#FDFDF8}
+.pc-photo~.pc-tag,.pc-photo~.pc-foot{text-shadow:0 0 .8cqw rgba(20,15,15,.18)} /* light; the bottom gradient carries legibility */
+.pc-time{font-family:Archivo,Pretendard,sans-serif;font-weight:300;font-size:1em;line-height:1;letter-spacing:-.01em} /* same size as the caption on the left */
+/* Campaign icon before the caption; drawn as a mask so it takes the text colour (ink on colour cards, off-white on photos) */
+.pc-cap{display:flex;align-items:center;gap:2.2cqw}
+.pc-ic{flex:none;width:5cqw;height:5cqw;background:currentColor;-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
+.pc-is-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(20,15,15,0) 30%,rgba(20,15,15,.18) 48%,rgba(20,15,15,.42))}
+@media(max-width:760px){
+ .pace-section{margin-top:70px;padding:92px 0 40px}
+ .pc-head{padding:0 20px;margin-bottom:32px}
+ .pc-track{--cw:min(78vw,calc((100svh - 250px) * 1298 / 1317));--gap:12px;padding-left:20px}
+ .pc-card{border-radius:4vw}
+}
+@media(prefers-reduced-motion:reduce){.pc-window{overflow-x:auto;scroll-snap-type:x mandatory}.pc-card{scroll-snap-align:start}.pc-track{will-change:auto}}

@@ -1,0 +1,52 @@
+/* Official iPhone 17 Pro bezel (1350×2760, screen 1206×2622 at x72 y69) = 450×920pt.
+   --pt is one iOS point at the rendered size; every screen measurement below is in pt. */
+.feed-mockups{align-items:start}
+.ip-figure{margin:0}
+.ip-figure figcaption{text-align:center;font-size:12px;color:#716d69;margin-top:14px}
+.iphone{position:relative;width:100%;max-width:400px;margin:auto;aspect-ratio:1350/2760;container-type:inline-size;filter:drop-shadow(0 24px 40px rgba(20,15,15,.12))}
+.ip-bezel{position:absolute;inset:0;width:100%;height:100%;max-width:none;pointer-events:none;user-select:none}
+.ip-screen{position:absolute;inset:0;background:#fff;-webkit-mask:url(../assets/device/iphone-17-pro-screen-mask.png) 0 0/100% 100% no-repeat;mask:url(../assets/device/iphone-17-pro-screen-mask.png) 0 0/100% 100% no-repeat}
+.ip-content{--pt:calc(100cqw / 450);position:absolute;left:5.3333%;top:2.5%;width:89.3333%;height:95%;overflow:hidden;background:#fff;color:#000;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Pretendard,"Apple SD Gothic Neo",sans-serif;font-size:calc(var(--pt)*14);line-height:1.4;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+.ip-content img{max-width:none}
+.ip-content svg{display:block;width:calc(var(--pt)*24);height:calc(var(--pt)*24);flex:none}
+.ip-status{display:block;width:100%;height:calc(var(--pt)*62)}
+.ip-bar{height:calc(var(--pt)*44);padding:0 calc(var(--pt)*16);display:flex;align-items:center;justify-content:space-between;font-size:calc(var(--pt)*17)}
+.ip-bar b{font-weight:600}
+.ip-actions{display:flex;gap:calc(var(--pt)*20)}
+.ip-profile{padding:calc(var(--pt)*10) calc(var(--pt)*16) calc(var(--pt)*14)}
+.ip-profile img{display:block;width:calc(var(--pt)*118);height:auto}
+.ip-profile h4{font-size:calc(var(--pt)*16);font-weight:600;margin:calc(var(--pt)*14) 0 calc(var(--pt)*4)}
+.ip-profile p{font-size:calc(var(--pt)*14);line-height:1.45;word-break:keep-all}
+.ip-btn{margin-top:calc(var(--pt)*14);height:calc(var(--pt)*32);border-radius:calc(var(--pt)*8);background:#efefef;display:flex;align-items:center;justify-content:center;font-size:calc(var(--pt)*14);font-weight:600}
+.ip-tabs{display:flex;height:calc(var(--pt)*44);border-top:calc(var(--pt)*.5) solid #dbdbdb}
+.ip-tabs span{flex:1;display:flex;align-items:center;justify-content:center;color:#a8a8a8}
+.ip-tabs .on{color:#000;box-shadow:inset 0 calc(var(--pt)*-1) 0 #000}
+.ip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--pt)*.67)}
+.ip-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;background:#efefef}
+.ip-post-bar{display:grid;grid-template-columns:calc(var(--pt)*44) 1fr calc(var(--pt)*44);padding:0 calc(var(--pt)*8);text-align:center}
+.ip-author{height:calc(var(--pt)*54);padding:0 calc(var(--pt)*14);display:flex;align-items:center;gap:calc(var(--pt)*10);font-size:calc(var(--pt)*14)}
+.ip-author b{font-weight:600}
+.ip-author svg{margin-left:auto;width:calc(var(--pt)*20);height:calc(var(--pt)*20)}
+.ip-avatar{flex:none;width:calc(var(--pt)*32);height:calc(var(--pt)*32);border-radius:50%;background:#FDFDF8;box-shadow:inset 0 0 0 calc(var(--pt)*.5) #dbdbdb;display:grid;place-items:center}
+.ip-avatar i{width:58%;height:58%;background:#140F0F;-webkit-mask:url(../assets/logo/lululemon.svg) left center/auto 100% no-repeat;mask:url(../assets/logo/lululemon.svg) left center/auto 100% no-repeat}
+.ip-photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.ip-react{display:flex;justify-content:space-between;padding:calc(var(--pt)*10) calc(var(--pt)*14) calc(var(--pt)*8)}
+.ip-react>span{display:flex;gap:calc(var(--pt)*16)}
+.ip-caption{padding:0 calc(var(--pt)*16);font-size:calc(var(--pt)*14);line-height:1.45;word-break:keep-all}
+.ip-caption b{font-weight:600}
+.ip-tabbar{position:absolute;left:0;right:0;bottom:0;height:calc(var(--pt)*83);padding:0 calc(var(--pt)*8) calc(var(--pt)*34);display:flex;align-items:center;justify-content:space-around;background:#fff;border-top:calc(var(--pt)*.5) solid #dbdbdb}
+.ip-tabbar svg{width:calc(var(--pt)*26);height:calc(var(--pt)*26)}
+.ip-me{width:calc(var(--pt)*26);height:calc(var(--pt)*26)}
+.ip-home{position:absolute;left:50%;bottom:calc(var(--pt)*8);width:calc(var(--pt)*139);height:calc(var(--pt)*5);margin-left:calc(var(--pt)*-69.5);border-radius:calc(var(--pt)*3);background:#000}
+@media(max-width:760px){.feed-mockups{gap:36px}.iphone{max-width:300px}}
+
+/* 프로필 머리: 원형 사진(86pt) 옆에 게시물 · 팔로워 · 팔로잉, 아래 이름 · 소개 · 버튼 둘 — 인스타그램 프로필 배치 */
+.ip-head{display:flex;align-items:center;gap:calc(var(--pt)*24)}
+.ip-avatar.ip-pic{width:calc(var(--pt)*86);height:calc(var(--pt)*86)}
+.ip-stats{flex:1;display:flex;justify-content:space-around;margin:0;text-align:center}
+.ip-stats div{display:flex;flex-direction:column-reverse}
+.ip-stats dd{margin:0;font-size:calc(var(--pt)*16);font-weight:600;line-height:1.25}
+.ip-stats dt{font-size:calc(var(--pt)*13);line-height:1.3}
+.ip-profile .ip-head+h4{margin-top:calc(var(--pt)*12)}
+.ip-btns{display:flex;gap:calc(var(--pt)*6);margin-top:calc(var(--pt)*14)}
+.ip-btns .ip-btn{flex:1;margin-top:0}

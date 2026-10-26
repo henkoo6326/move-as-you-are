@@ -1,0 +1,86 @@
+/* Hero typography options (hero-type.js). The photo fills the hero; type sizes are cqw/cqh of the hero,
+   so the same rules work on the main page (one screen under the 72px nav) and in the comparison frames.
+   Rules kept from the campaign: Archivo Light, sentence case, no italics or fake condensing, five palette colors, red only as the threshold line. */
+.hero.ht,.ht{position:relative;display:block;height:calc(100svh - 72px);min-height:560px;aspect-ratio:auto;overflow:hidden;container-type:size;background:#140F0F;color:#FDFDF8;padding:0}
+.ht{--op:50% 15%} /* keeps her head in frame; the cut-out uses the same crop so it lines up */
+.ht .ht-img,.ht .ht-cut{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:var(--op)}
+.ht .ht-cut{z-index:2;pointer-events:none;-webkit-mask:url(../assets/img/hero/11-person-mask.png) var(--op)/cover no-repeat;mask:url(../assets/img/hero/11-person-mask.png) var(--op)/cover no-repeat}
+.ht>h1,.ht>p,.ht>div{z-index:1}
+.hero.ht h1,.ht h1{position:absolute;margin:0;font-family:Archivo,sans-serif;font-weight:300;line-height:.92;letter-spacing:-.05em;color:inherit;white-space:nowrap}
+.hero.ht h1 br{display:inline}
+.ht p{position:absolute;margin:0;font-family:Pretendard,sans-serif;font-size:max(15px,1.3cqw);line-height:1.5;letter-spacing:-.01em;color:inherit}
+.ht .ht-copy,.ht .ht-below{position:absolute}
+.ht .ht-copy p,.ht .ht-below p{position:static}
+
+/* A — two lines in the open sky */
+.ht.ht-a .ht-copy{left:67cqw;top:16cqh}
+.ht.ht-a h1{position:static;font-size:7.2cqw}
+.ht.ht-a .ht-copy p{margin-top:2.6cqw}
+
+/* B — one line across the width (size set by hero-type.js) */
+.ht.ht-b h1{left:5cqw;top:5cqh}
+.ht.ht-b .ht-ko{right:5cqw;bottom:6cqh}
+
+/* C — threshold line at 38% of the height; English above, Korean + credit below at 30% of the title size, tracking +7%.
+   Gap between line and letters ≥ 0.6 × x-height so the line never reads as an underline */
+.ht.ht-c .ht-line{position:absolute;left:0;right:0;top:62cqh;height:1px;background:#C8102E}
+.ht.ht-c h1{right:5cqw;bottom:calc(38cqh + 1.5cqw);font-size:4.2cqw} /* sized to stay in the sky right of her back; only the line runs behind her */
+.ht.ht-c .ht-below{right:5cqw;top:calc(62cqh + 1.3cqw);text-align:right}
+.ht.ht-c .ht-below p{font-size:max(13px,1.26cqw);letter-spacing:.07em;line-height:1.5}
+.ht.ht-c .ht-below p+p{opacity:.72}
+
+/* D — the one changed word, large; the rest small under it */
+.ht.ht-d h1{right:5cqw;top:13cqh;text-align:right;line-height:1}
+.ht.ht-d .ht-verb{display:block;font-size:19cqw;line-height:.86}
+.ht.ht-d .ht-rest{display:block;font-size:3.4cqw;letter-spacing:-.03em;margin-top:2.4cqw}
+.ht.ht-d .ht-ko{right:5cqw;bottom:6cqh}
+
+/* E — four corners, small; a light scrim keeps the lower corners readable over the white railing */
+.ht.ht-e:after{content:"";position:absolute;inset:auto 0 0;height:30cqh;background:linear-gradient(rgba(20,15,15,0),rgba(20,15,15,.38))}
+.ht.ht-e h1,.ht.ht-e p{z-index:1}
+.ht.ht-e .ht-tl{left:5cqw;top:5cqh;font-size:2.6cqw;letter-spacing:-.035em}
+.ht.ht-e .ht-tr{right:5cqw;top:5cqh}
+.ht.ht-e .ht-bl{left:5cqw;bottom:5cqh;font-family:Archivo,sans-serif;font-weight:300}
+.ht.ht-e .ht-br{right:5cqw;bottom:5cqh}
+
+/* F — the campaign wordmark set on construction lines, after the reference poster: hairlines run the full frame
+   along the wordmark's four edges and cross the photo. Site grid inside the hero: 12 columns between 5cqw gutters,
+   24px gaps; the wordmark starts on column 9 and sits on the vertical centre. The tagline (top) hangs off the same vertical
+   line; the credits (bottom) start on column 10, clear of her shorts, which reach into column 9 at that height.
+   Both are left-aligned in the open sky; the credits use one size and differ by colour only. */
+.ht{--g:24px;--col:calc((90cqw - 11 * var(--g)) / 12)}
+.ht.ht-f{--x:calc(5cqw + 8 * (var(--col) + var(--g)));--w:28cqw;--lh:calc(var(--w) * .4234);--y:calc(50cqh - var(--lh) / 2)} /* .4234 = wordmark height / width */
+.ht.ht-f:after{content:"";position:absolute;inset:auto 0 0;height:30cqh;background:linear-gradient(rgba(20,15,15,0),rgba(20,15,15,.32))}
+.ht-grid i{position:absolute;z-index:1;background:rgba(253,253,248,.42)}
+.ht-grid .gv{top:0;bottom:0;width:1px;left:var(--x)}
+.ht-grid .gv2{left:calc(var(--x) + var(--w))}
+.ht-grid .gh{left:0;right:0;height:1px;top:var(--y)}
+.ht-grid .gh2{top:calc(var(--y) + var(--lh))}
+.ht.ht-f h1{left:var(--x);top:var(--y);width:var(--w)}
+.ht-mark i{display:block;background:#FDFDF8;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.ht-mark .m1{width:100%;aspect-ratio:658.843/104.027;-webkit-mask-image:url(../assets/logo/campaign-soft-motion/move-as.svg);mask-image:url(../assets/logo/campaign-soft-motion/move-as.svg)}
+/* Both lines left-aligned (each SVG starts its first letter at x 0, same letter scale: 568.696/658.843 = 86.318%).
+   Line gap = 4.7% of the width = 34% of the x-height between the first line's baseline and the second line's x-height */
+.ht-mark .m2{width:86.318%;margin:4.7% 0 0;aspect-ratio:568.696/144;-webkit-mask-image:url(../assets/logo/campaign-soft-motion/you-are.svg);mask-image:url(../assets/logo/campaign-soft-motion/you-are.svg)}
+.ht.ht-f .ht-en,.ht-credit{left:calc(var(--x) + 10px);font-family:Pretendard,sans-serif;font-size:max(14px,1.05cqw);line-height:1.5;letter-spacing:-.01em}
+.ht.ht-f .ht-en{top:6cqh;font-family:Archivo,Pretendard,sans-serif}
+.ht-credit{position:absolute;z-index:1;bottom:6cqh;margin:0;display:grid;row-gap:2px;left:calc(5cqw + 9 * (var(--col) + var(--g)) + 10px)}
+.ht-credit div{display:flex;gap:12px}
+.ht-credit dt{color:rgba(253,253,248,.58)}
+.ht-credit dd{margin:0;color:#FDFDF8}
+
+@media(max-width:760px){
+ .hero.ht,.ht{height:calc(100svh - 60px)}
+ .ht{--op:22% 15%}
+ .ht.ht-a .ht-copy{left:6cqw;top:auto;bottom:9cqh}.ht.ht-a h1{font-size:17cqw}
+ .ht.ht-c h1{font-size:11cqw;right:6cqw}.ht.ht-c .ht-below p{font-size:3.3cqw}
+ .ht.ht-d .ht-verb{font-size:36cqw}.ht.ht-d .ht-rest{font-size:6cqw}
+ .ht.ht-e .ht-tl{font-size:6cqw}.ht.ht-e p{font-size:3.3cqw}
+ /* Phones: the wordmark drops into the open sky under her fist with the credits below it; the tagline moves up into
+    the pocket of sky under her chin. All three stay on one vertical line, clear of her (measured against the person mask) */
+ .ht.ht-f{--x:6cqw;--w:60cqw;--y:calc(95cqh - 74px - var(--lh))}
+ .ht.ht-f .ht-en{top:33cqh}
+ .ht-credit{left:calc(var(--x) + 10px);bottom:5cqh}
+}
+/* Short phones (SE class): her fist sits lower, so the wordmark narrows to fit the sky between fist and credits */
+@media(max-width:760px) and (max-height:700px){.ht.ht-f{--w:24cqh}.ht.ht-f .ht-en{top:36cqh;font-size:13px}}

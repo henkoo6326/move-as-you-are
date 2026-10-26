@@ -1,0 +1,27 @@
+.reels-section{margin-top:100px;scroll-margin-top:90px;color:#140F0F}
+.reels-heading{max-width:1320px;margin:0 auto 30px;padding:0 5vw;display:flex;justify-content:space-between;align-items:end;gap:24px;box-sizing:content-box}
+.reels-heading h2{font-size:14px;font-weight:400;margin:0 0 16px}.reels-heading h3{font-size:clamp(28px,3vw,46px);font-weight:400;letter-spacing:-.04em;margin:0}
+.reels-pause{border:1px solid currentColor;background:transparent;color:inherit;border-radius:0;font:inherit;font-size:13px;padding:10px 16px;cursor:pointer;white-space:nowrap}
+.reels-pause:focus-visible{outline:3px solid #140F0F;outline-offset:4px}
+.reels-window{overflow:hidden;background:#232323;padding:60px 0;position:relative;--reel-width:clamp(220px,27.3vw,600px);--reel-gap:clamp(20px,3.5vw,72px)}
+.reels-track{display:flex;width:max-content;will-change:transform;gap:var(--reel-gap)}
+.reels-group{display:flex;gap:var(--reel-gap)}
+.reels-card{margin:0;width:var(--reel-width);aspect-ratio:9/16;border-radius:8px;overflow:hidden;background:#140F0F;flex:none}
+.reels-card video{display:block;width:100%;height:100%;object-fit:contain;background:#140F0F}
+@media(max-width:760px){.reels-section{margin-top:64px}.reels-heading{padding:0 20px;margin-bottom:24px}.reels-heading h3{font-size:28px}.reels-window{--reel-width:min(68vw,320px);--reel-gap:20px;padding:32px 0}.reels-pause{padding:8px 10px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.reels-track{will-change:auto}}
+/* Embedded in an existing section (#stories): full-bleed band under the section heading. */
+.section:has(>.reels-embed){overflow-x:clip}
+.reels-embed .reels-window{margin-inline:calc(50% - 50vw)}
+.reels-controls{max-width:1320px;margin:20px auto 0;display:flex;justify-content:flex-end}
+/* Story sequence (#videography): the three reels as plain films, matching the full-width media rows around it. */
+.story-films{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:24px auto 0}
+.story-films figure{margin:0;min-width:0}
+.story-films video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#140F0F}
+@media(max-width:760px){.story-films{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72vw;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding-inline:20px;scroll-padding-inline:20px;scrollbar-width:none}.story-films figure{scroll-snap-align:start}}
+
+/* Videography 영상 얇은 외곽선 — 페이지 헤어라인과 같은 1px #140F0F30, 안쪽으로 그려 크기는 그대로 */
+.story-films video{outline:1px solid #140F0F30;outline-offset:-1px}
+
+/* Stories — 레이블 대신 섹션 타이틀 크기로(바로 위 Posters 타이틀과 같은 단계). section-heads.css 보다 우선하도록 #stories 로 지정 */
+#stories .section-head .eyebrow{font-family:var(--f-en,Archivo,sans-serif);font-size:clamp(40px,4.6vw,72px);font-weight:400;line-height:1.15;letter-spacing:-.045em;color:#FDFDF8;margin:0}

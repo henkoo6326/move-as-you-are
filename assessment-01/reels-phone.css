@@ -1,0 +1,36 @@
+/* Instagram Reels screen inside the shared iPhone frame (sizes in iOS pt via --pt from phone-mockups.css). */
+.reel-stage{max-width:1320px;margin:24px auto 0}
+.reel-stage .iphone{max-width:380px}
+.ip-content.rp-content{background:#000;color:#fff}
+.rp-video{position:absolute;left:0;top:0;width:100%;height:calc(100% - var(--pt)*83);object-fit:cover;background:#000}
+.rp-ui{position:absolute;inset:0;pointer-events:none}
+.rp-ui:before{content:"";position:absolute;left:0;right:0;bottom:calc(var(--pt)*83);height:calc(var(--pt)*400);background:linear-gradient(transparent,rgba(0,0,0,.18) 40%,rgba(0,0,0,.5))}
+.rp-status{position:relative;filter:invert(1)}
+.rp-top{position:relative;height:calc(var(--pt)*44);padding:0 calc(var(--pt)*16);display:flex;align-items:center;gap:calc(var(--pt)*2);font-size:calc(var(--pt)*22)}
+.rp-top b{font-weight:700;letter-spacing:-.02em}
+.rp-top svg{width:calc(var(--pt)*20);height:calc(var(--pt)*20)}
+.rp-top span{margin-left:auto}.rp-top span svg{width:calc(var(--pt)*26);height:calc(var(--pt)*26)}
+.rp-actions{position:absolute;right:calc(var(--pt)*10);bottom:calc(var(--pt)*100);display:flex;flex-direction:column;align-items:center;gap:calc(var(--pt)*18)}
+.rp-actions span{display:flex;flex-direction:column;align-items:center;gap:calc(var(--pt)*4)}
+.rp-actions svg{width:calc(var(--pt)*27);height:calc(var(--pt)*27)}
+.rp-actions small{font-size:calc(var(--pt)*12);font-weight:600}
+.rp-disc .rp-avatar{width:calc(var(--pt)*28);height:calc(var(--pt)*28);border-radius:calc(var(--pt)*6);box-shadow:0 0 0 calc(var(--pt)*2) #fff}
+.rp-meta{position:absolute;left:calc(var(--pt)*14);right:calc(var(--pt)*64);bottom:calc(var(--pt)*98);font-size:calc(var(--pt)*14);line-height:1.4}
+.rp-author{display:flex;align-items:center;gap:calc(var(--pt)*10);margin-bottom:calc(var(--pt)*10)}
+.rp-author b{font-weight:600}
+.rp-author em{font-style:normal;font-weight:600;font-size:calc(var(--pt)*13);padding:calc(var(--pt)*4) calc(var(--pt)*10);border:calc(var(--pt)*1) solid rgba(255,255,255,.8);border-radius:calc(var(--pt)*8)}
+.rp-meta p{margin:0 0 calc(var(--pt)*10);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rp-meta p span{color:rgba(255,255,255,.7)}
+.rp-audio{display:flex;align-items:center;gap:calc(var(--pt)*6);font-size:calc(var(--pt)*13)}
+.rp-audio svg{width:calc(var(--pt)*14);height:calc(var(--pt)*14)}
+.rp-avatar{flex:none;width:calc(var(--pt)*32);height:calc(var(--pt)*32);border-radius:50%;background:#FDFDF8;display:grid;place-items:center}
+.rp-avatar i{width:58%;height:58%;background:#140F0F;-webkit-mask:url(../assets/logo/lululemon.svg) left center/auto 100% no-repeat;mask:url(../assets/logo/lululemon.svg) left center/auto 100% no-repeat}
+.rp-tabbar{position:absolute;left:0;right:0;bottom:0;height:calc(var(--pt)*83);padding:0 calc(var(--pt)*8) calc(var(--pt)*34);display:flex;align-items:center;justify-content:space-around;background:#000;color:#fff}
+.rp-tabbar svg{width:calc(var(--pt)*26);height:calc(var(--pt)*26)}
+.rp-tabbar .rp-avatar{width:calc(var(--pt)*26);height:calc(var(--pt)*26)}
+.ip-home.rp-home{background:#fff}
+@media(max-width:760px){.reel-stage .iphone{max-width:300px}}
+/* Three reels side by side; a swipeable row on phones. */
+.reel-stage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
+.reel-stage .iphone{max-width:380px}
+@media(max-width:760px){.reel-stage{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:76vw;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding-inline:20px;scroll-padding-inline:20px;scrollbar-width:none}.reel-stage .ip-figure{scroll-snap-align:start}.reel-stage .iphone{max-width:none}}

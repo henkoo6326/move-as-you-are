@@ -1,0 +1,13 @@
+/* Scoped campaign visual refresh. */
+.hero-img{object-position:76% 50%}.opening-image{aspect-ratio:16/9}.opening-image figure,.opening-image img{width:100%;height:100%;object-fit:contain}.still-sequence img{width:100%;height:auto}.still-stories{max-width:1050px;align-items:start}.still-stories .story>figure{background:#e5e7e5}.still-stories .story img{width:100%;height:auto}.feed-mockups{max-width:1050px;grid-template-columns:1fr 1fr}.mood-grid figure:first-child img{object-position:76% center}.swatches small{color:#46525b}.section-head p{max-width:720px}
+@media(max-width:760px){.hero-img{object-position:78% 50%;height:460px}.hero-copy{background:#FDFDF8}.opening-image{aspect-ratio:auto}.opening-image img{height:auto}.feed-mockups{grid-template-columns:1fr;max-width:440px}.still-stories{max-width:420px}.mood-grid figure:first-child img{object-position:78% center}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(min-width:761px){.hero{height:auto;min-height:0;aspect-ratio:1456/816}.hero-img{height:100%;object-fit:contain}.hero-copy{top:23%}}
+.concept-scenes figure:first-child img{object-position:76% center}.companions{margin-top:28px;align-items:center;background:#A8B3BC}
+
+/* Impact revision: preserve the original campaign palette. */
+.hero{height:auto;min-height:0;display:flex;flex-direction:column;aspect-ratio:auto;background:#FDFDF8}.hero-copy{position:relative;inset:auto;width:auto;padding:45px 5vw 35px;order:-1;display:flex;align-items:flex-end;justify-content:space-between;gap:30px;color:#140F0F}.hero h1{font-size:clamp(64px,8vw,132px);line-height:.95}.hero-copy p{font-size:22px;margin:0 0 6px}.hero-img{width:100%;height:auto;object-fit:contain}.companions{background:#FDFDF8}.mood-grid figure:first-child img{object-fit:contain;background:#FDFDF8}.concept-scenes figure:first-child img{object-position:28% center}.still-stories .story>figure{background:#FDFDF8}.swatches small{color:#706c68}
+@media(max-width:760px){.hero-copy{display:block;padding:32px 20px}.hero-copy p{font-size:17px;margin-top:20px}.hero-img{height:auto;min-height:0}.hero h1{font-size:70px}.concept-scenes figure:first-child .concept-scene-image{aspect-ratio:16/9}.concept-scenes figure:first-child img{object-fit:contain}.mood-grid figure:first-child img{height:auto}.companions{grid-template-columns:1fr}}
+
+@media(min-width:761px){.hero h1 br{display:none}.hero h1{font-size:clamp(52px,6vw,96px)}.hero-copy{padding-top:34px;padding-bottom:34px}.hero-copy p{font-size:18px}}
+.color-detail{height:auto;overflow:visible}.color-detail .zoom{height:auto}.color-detail img{height:auto;object-fit:contain;object-position:center}

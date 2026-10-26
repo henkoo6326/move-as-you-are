@@ -1,0 +1,18 @@
+/* Instagram story chrome on each reel card. Every size is measured from the reference video
+   (3000×2000 frame, card 818×1456) and expressed as a share of the card width (cqw). */
+.reels-window{background:#191919;padding:calc(var(--reel-width)*.3325) 0}
+.reels-card{position:relative;container-type:inline-size;border-radius:calc(var(--reel-width)*.029)}
+.story-chrome{position:absolute;inset:0;pointer-events:none;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Pretendard,sans-serif;letter-spacing:0}
+.story-bars{position:absolute;top:3.42cqw;left:3.42cqw;right:3.42cqw;display:flex;gap:.37cqw}
+.story-bars i{flex:1;height:.55cqw;border-radius:.3cqw;background:rgba(255,255,255,.35);overflow:hidden}
+.story-bars b{display:block;height:100%;width:0;background:#fff}
+.story-head{position:absolute;left:3.42cqw;right:3.55cqw;top:7.15cqw;height:8.07cqw;display:flex;align-items:center}
+.story-av{flex:none;width:8.07cqw;height:8.07cqw;border-radius:50%;background:#FDFDF8;display:grid;place-items:center}
+.story-av i{width:58%;height:58%;background:#140F0F;-webkit-mask:url(../assets/logo/lululemon.svg) left center/auto 100% no-repeat;mask:url(../assets/logo/lululemon.svg) left center/auto 100% no-repeat}
+.story-name{margin-left:1.83cqw;font-size:3.5cqw;font-weight:600;line-height:1;white-space:nowrap}
+.story-time{margin-left:1.1cqw;font-size:3.5cqw;font-weight:400;line-height:1;color:rgba(255,255,255,.6);white-space:nowrap}
+.story-more{position:absolute;right:10.81cqw;width:4.03cqw;height:.98cqw;display:flex;justify-content:space-between}
+.story-more i{width:.98cqw;height:.98cqw;border-radius:50%;background:#fff}
+.story-close{position:absolute;right:0;width:4.65cqw;height:4.65cqw}
+.story-close:before,.story-close:after{content:"";position:absolute;left:50%;top:50%;width:6.57cqw;height:.32cqw;background:#fff;border-radius:.16cqw;transform:translate(-50%,-50%) rotate(45deg)}
+.story-close:after{transform:translate(-50%,-50%) rotate(-45deg)}

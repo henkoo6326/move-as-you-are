@@ -1,0 +1,17 @@
+/* Three 3:2 landscape posters from Figma: equal columns instead of the old mixed-ratio layout */
+.keyvisual-pair{grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.keyvisual-pair figure:last-child{width:auto;margin:0}
+.poster-series.poster-series-even{grid-template-columns:1fr 1fr;gap:24px;align-items:start;max-width:1320px;margin-top:24px}
+.poster-series.poster-series-even>figure{width:auto;margin:0}
+.poster-lead{max-width:1320px}
+/* street 2500×1792 · studio 2880×1792: columns in proportion to width/height so both mockups share one height */
+.ooh-pair{grid-template-columns:1.395fr 1.607fr;align-items:start}
+@media(max-width:760px){.keyvisual-pair,.poster-series.poster-series-even,.ooh-pair{grid-template-columns:1fr;gap:16px}}
+/* BIS board: the key-visual slot was sized for the old 16:9 poster. The 3:2 poster ends at 42.5% of board width,
+   so the lower row moves down 6.5 (same 2.6 gap as before) and the board grows from 69 to 73.5 (values in % of height) */
+@media(min-width:761px){
+.approved-bis{aspect-ratio:1.3605}
+.approved-bis .photos,.approved-bis .type,.approved-bis .film{top:61.36%}
+.approved-bis .icons{top:89.52%}
+.approved-bis .palette{top:37.55%;height:58.64%}
+}
